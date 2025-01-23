@@ -1,0 +1,148 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #020202;
+    overflow: hidden;
+    position: relative;
+    top: 30px;
+}
+
+.card {
+    background-color: #9a0feb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.card h1 {
+    color: #ffffff;
+}
+
+.card p {
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+.card strong {
+    color: #ff69b4;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #dd15dd;
+    color: #fffefe;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+.hidden {
+    display: none;
+}
+
+#counter {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.time-box {
+    background-color: #dd15dd;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 60px;
+}
+
+.time-box span {
+    color: #ffffff;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#heartsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: fall 5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes fall {
+    0% {
+        top: -20px;
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+/* Media queries para iPhone 11 e 12 */
+@media only screen and (max-width: 414px) {
+    .card {
+        padding: 15px;
+    }
+
+    .time-box {
+        width: 50px;
+        padding: 8px;
+    }
+
+    .time-box span {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
