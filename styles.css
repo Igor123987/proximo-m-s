@@ -5,9 +5,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #020202;
-    overflow: hidden;
-    position: relative;
+    background-color: #000000;
+   
+    
 }
 
 .card {
@@ -19,6 +19,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
+  
 }
 
 .card h1 {
@@ -128,14 +129,75 @@ button:hover {
     }
 }
 
+/* Animações de Texto */
+.animated-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.animated-text:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.animated-text:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.animated-text:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.animated-text:nth-child(4) {
+    animation-delay: 2s;
+}
+
+.animated-text:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+.animated-text:nth-child(6) {
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Efeitos de Parallax */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('caminho/para/sua/imagem-de-fundo.jpg') no-repeat center center/cover;
+    z-index: -1;
+    transform: translateZ(-1px) scale(2);
+    animation: parallax 10s infinite linear;
+}
+
+@keyframes parallax {
+    0% {
+        transform: translateZ(-1px) scale(2) translateY(0);
+    }
+    100% {
+        transform: translateZ(-1px) scale(2) translateY(-50%);
+    }
+}
+
 /* Media queries para iPhone 11 e 12 */
 @media only screen and (max-width: 414px) {
     .card {
         padding: 15px;
+        position: relative;
+        top: 90px;
     }
 
     .time-box {
-        width: 60px;
+        width: 50px;
         padding: 8px;
     }
 
