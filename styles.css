@@ -192,7 +192,7 @@ body::before {
     .card {
         padding: 15px;
         position: relative;
-        top: 60px;
+        top: 50px;
     }
 
     .time-box {
