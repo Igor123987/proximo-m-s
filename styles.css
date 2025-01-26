@@ -5,9 +5,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000000;
-   
-    
+    background-color: #020202;
+    overflow: auto;
+    position: relative;
 }
 
 .card {
@@ -19,7 +19,6 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
-  
 }
 
 .card h1 {
@@ -193,7 +192,7 @@ body::before {
     .card {
         padding: 15px;
         position: relative;
-        top: 90px;
+        top: 60px;
     }
 
     .time-box {
