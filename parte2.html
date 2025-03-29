@@ -3,60 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linha do Tempo do Nosso Relacionamento</title>
-    <link rel="stylesheet" href="styles2.css">
+    <title>Cartas para Você</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle, #4b0082, #000);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .hidden { display: none; }
+        .letter {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .letter:hover {
+            transform: scale(1.1);
+        }
+        .letter img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="timeline" id="timeline">
-        <div class="timeline-event">
-            <div class="timeline-content">
-                <h2>Dia do meu Aniversário ❤️</h2>
-                <p>Essa foto você tirou porque fiquei falando que na hora do bolo você não quis ir tirar.</p>
-                <img src="fotos/foto1.jpeg" alt="Primeiro Encontro">
-                <button onclick="editTimelineEvent(this)">Editar</button>
-                <button onclick="deleteTimelineEvent(this)">Excluir</button>
-            </div>
+    <div class="card max-w-lg p-6">
+        <h1 class="text-3xl font-extrabold text-purple-400">Cartas para Você 💌</h1>
+        <p class="text-lg mt-2 text-gray-300">Clique em uma imagem para abrir uma mensagem especial!</p>
+        
+        <div class="grid grid-cols-3 gap-4 mt-4">
+            <div class="letter" onclick="showMessage(0)"><img src="fotos/foto1.jpeg" alt="Carta 1"></div>
+            <div class="letter" onclick="showMessage(1)"><img src="fotos/foto2.jpeg" alt="Carta 2"></div>
+            <div class="letter" onclick="showMessage(2)"><img src="fotos/foto3.jpeg" alt="Carta 3"></div>
+            <div class="letter" onclick="showMessage(3)"><img src="fotos/WhatsApp Image 2025-02-22 at 00.59.19 (1).jpeg" alt="Carta 4"></div>
+            <div class="letter" onclick="showMessage(4)"><img src="fotos/WhatsApp Image 2025-02-22 at 00.59.19.jpeg" alt="Carta 5"></div>
+            <div class="letter" onclick="showMessage(5)"><img src="fotos/foto6.jpeg" alt="Carta 6"></div>
+            <div class="letter" onclick="showMessage(6)"><img src="fotos/foto7.jpeg" alt="Carta 7"></div>
+            <div class="letter" onclick="showMessage(7)"><img src="fotos/WhatsApp Image 2025-02-22 at 00.59.16.jpeg" alt="Carta 8"></div>
+            <div class="letter" onclick="showMessage(8)"><img src="fotos/WhatsApp Image 2025-02-22 at 00.59.18 (1).jpeg" alt="Carta 9"></div>
         </div>
-        <div class="timeline-event">
-            <div class="timeline-content">
-                <h2>Dia da embaixada</h2>
-                <p>Nesse dia, eu falei que não sabia se um dia te pediria em namoro, mas pouco tempo depois desse dia, já estava totalmente apaixonado por você.</p>
-                <img src="fotos/foto2.jpeg" alt="Primeira Viagem">
-                <button onclick="editTimelineEvent(this)">Editar</button>
-                <button onclick="deleteTimelineEvent(this)">Excluir</button>
-            </div>
-        </div>
-        <div class="timeline-event">
-            <div class="timeline-content">
-                <h2>Dia da Samsung</h2>
-                <p>Esse dia foi muito especial, e você, como sempre, muito linda.</p>
-                <img src="fotos/foto3.jpeg" alt="Aniversário de 1 Ano">
-                <button onclick="editTimelineEvent(this)">Editar</button>
-                <button onclick="deleteTimelineEvent(this)">Excluir</button>
-            </div>
-        </div>
-        <div class="timeline-event">
-            <div class="timeline-content">
-                <h2>Dia que você ficou com vergonha</h2>
-                <p>Essa foto lembro como se fosse hoje, você com vergonha e nossa como você é linda até com vergonha. Você é maravilhosa, meu amor.</p>
-                <img src="fotos/foto5.jpeg" alt="Primeiro Natal Juntos">
-                <button onclick="editTimelineEvent(this)">Editar</button>
-                <button onclick="deleteTimelineEvent(this)">Excluir</button>
-            </div>
-        </div>
-        <div class="timeline-event">
-            <div class="timeline-content">
-                <h2>Penúltimo dia</h2>
-                <p>Não tenho palavras para descrever esse dia, mas a única palavra que vem à mente é: eu te amo, meu amor.</p>
-                <img src="fotos/foto6.jpeg" alt="Viagem dos Sonhos">
-                <button onclick="editTimelineEvent(this)">Editar</button>
-                <button onclick="deleteTimelineEvent(this)">Excluir</button>
-            </div>
+
+        <div id="messageBox" class="hidden mt-4 p-4 bg-purple-900 text-white rounded-lg shadow">
+            <p id="messageText" class="text-lg font-semibold"></p>
         </div>
     </div>
-    <input type="file" id="imageInput" accept="image/*">
-    <button onclick="addTimelineEvent()">Adicionar Nova Foto e Texto</button>
 
-    <script src="script2.js"></script>
+    <script>
+        const messages = [
+            "Você é meu raio de luz! 🌟",
+            "Cada momento contigo é um presente! 🎁",
+            "Seu sorriso ilumina meu mundo! 😊",
+            "Te amar é a melhor parte do meu dia! ❤️",
+            "Nosso amor é infinito! 💜",
+            "Sempre estarei ao seu lado! 🤗",
+            "Com você, tudo é mais bonito! 🌷",
+            "Minha felicidade começa em você! 💖",
+            "Você é o sonho que virou realidade! ✨"
+        ];
+
+        function showMessage(index) {
+            document.getElementById("messageText").innerText = messages[index];
+            document.getElementById("messageBox").classList.remove("hidden");
+        }
+    </script>
 </body>
 </html>
