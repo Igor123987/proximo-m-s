@@ -14,6 +14,7 @@
             align-items: center;
             text-align: center;
             color: white;
+            flex-direction: column;
         }
         .card {
             background: rgba(0, 0, 0, 0.8);
@@ -63,6 +64,11 @@
             <p id="messageText" class="text-lg font-semibold"></p>
         </div>
     </div>
+    
+    <p class="mt-6 text-lg text-gray-300">Ir para o joguinho 🎮</p>
+    <button onclick="window.location.href='jogo.html'" id="playButton" class="mt-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg rounded-lg shadow-lg transition duration-300">
+        Jogue Agora
+    </button>
 
     <script>
         const messages = [
@@ -81,6 +87,10 @@
             document.getElementById("messageText").innerText = messages[index];
             document.getElementById("messageBox").classList.remove("hidden");
         }
+        
+        document.getElementById("playButton").addEventListener("click", function() {
+            alert("O jogo começará em breve!");
+        });
     </script>
 </body>
 </html>

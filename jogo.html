@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Ligar Palavras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        let palavras = ["Nosso", "amor", "é", "infinito,", "e", "cada", "momento", "ao", "seu", "lado", "é", "um", "presente", "que", "eu", "quero", "viver", "para", "sempre."];
+        let resposta = [];
+
+        function adicionarPalavra(palavra, el) {
+            if (resposta.length < palavras.length) {
+                resposta.push(palavra);
+                el.classList.add('bg-purple-600', 'text-white', 'border-purple-500', 'shadow-[0_0_15px_rgba(147,51,234,0.9)]');
+                atualizarFrase();
+            }
+        }
+
+        function atualizarFrase() {
+            document.getElementById("frase").innerText = resposta.join(" ");
+            if (resposta.length === palavras.length && JSON.stringify(resposta) === JSON.stringify(palavras)) {
+                document.getElementById("mensagem").classList.remove("opacity-0");
+            } else {
+                document.getElementById("mensagem").classList.add("opacity-0");
+            }
+        }
+
+        function reiniciar() {
+            resposta = [];
+            document.getElementById("frase").innerText = "";
+            document.getElementById("mensagem").classList.add("opacity-0");
+            document.querySelectorAll(".palavra-btn").forEach(btn => btn.classList.remove('bg-purple-600', 'text-white', 'border-purple-500', 'shadow-[0_0_15px_rgba(147,51,234,0.9)]'));
+        }
+    </script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-black to-purple-900 text-white font-sans p-6">
+    <h1 class="text-4xl font-bold mb-6 text-purple-400">Monte a Frase de Amor!</h1>
+    <div class="grid grid-cols-3 gap-4 mb-6 p-6 border-4 border-purple-500 rounded-2xl shadow-[0_0_20px_rgba(147,51,234,1)] bg-black/30 backdrop-blur-lg">
+        <script>
+            let palavrasEmbaralhadas = [...palavras].sort(() => Math.random() - 0.5);
+            palavrasEmbaralhadas.forEach(palavra => {
+                document.write(`<button onclick="adicionarPalavra('${palavra}', this)" class="palavra-btn px-6 py-3 text-lg font-semibold text-purple-300 bg-black/40 hover:bg-purple-600 border-2 border-purple-500 rounded-xl shadow-[0_0_15px_rgba(147,51,234,1)] transition-all duration-300">${palavra}</button>`);
+            });
+        </script>
+    </div>
+    <h2 id="frase" class="text-2xl font-semibold text-center mb-4 min-h-[50px] transition-opacity duration-300 text-purple-300"></h2>
+    <h3 id="mensagem" class="text-pink-400 text-4xl font-bold opacity-0 transition-opacity duration-500">Eu te amooooo ❤️❤️</h3>
+    <button id="reiniciar" onclick="reiniciar()" class="mt-6 px-8 py-4 text-lg font-semibold text-purple-300 bg-black/40 hover:bg-purple-600 border-2 border-purple-500 rounded-xl shadow-[0_0_15px_rgba(147,51,234,1)] transition-all duration-300">Reiniciar</button>
+    <a href="parte1.html" class="mt-6 px-8 py-4 text-lg font-semibold text-purple-300 bg-black/40 hover:bg-purple-600 border-2 border-purple-500 rounded-xl shadow-[0_0_15px_rgba(147,51,234,1)] transition-all duration-300">Quanto me ama?</a>
+</body>
+</html>
