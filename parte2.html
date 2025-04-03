@@ -22,6 +22,7 @@
             border-radius: 15px;
             box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.2);
             animation: fadeIn 1.5s;
+            position: relative;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
@@ -41,11 +42,30 @@
             object-fit: cover;
             border-radius: 10px;
         }
+        .emoji-button {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-left: 10px;
+        }
+        .emoji-button:hover {
+            transform: scale(1.2);
+        }
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
-    <div class="card max-w-lg p-6">
-        <h1 class="text-3xl font-extrabold text-purple-400">Cartas para Você 💌</h1>
+    <div class="card max-w-lg p-6 relative">
+        <div class="title-container">
+            <h1 class="text-3xl font-extrabold text-purple-400">Cartas para Você</h1>
+            <button class="emoji-button" onclick="window.location.href='partese.html'">💌</button>
+        </div>
         <p class="text-lg mt-2 text-gray-300">Clique em uma imagem para abrir uma mensagem especial!</p>
         
         <div class="grid grid-cols-3 gap-4 mt-4">
@@ -85,6 +105,12 @@
 
         function showMessage(index) {
             document.getElementById("messageText").innerText = messages[index];
+            document.getElementById("messageBox").classList.remove("hidden");
+        }
+
+        function showRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("messageText").innerText = messages[randomIndex];
             document.getElementById("messageBox").classList.remove("hidden");
         }
         
