@@ -5,14 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartinha para Minha Namorada</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #070207;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #780ba3;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .animated-text {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #revealMessageBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ab0aeb;
+            color: #f3ecf3;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #revealMessageBtn:hover {
+            background-color: #a81194;
+        }
+
+        #counter {
+            color: #000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            color: #000;
+            display: none;
+        }
+
+        .time-box {
+            color: #fcf4fc;
+            background-color: #161414;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .time-box span {
+            color: #f7efef;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .heart-button,
+        .cake-button {
+            display: inline-block;
+            font-size: 2rem;
+            margin: 20px 10px 0;
+            text-decoration: none;
+            background-color: #fff0f5;
+            border: 2px solid pink;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .heart-button:hover,
+        .cake-button:hover {
+            transform: scale(1.1);
+            background-color: #ffe4e1;
+        }
+
+        #heartsContainer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="card">
         <h1 class="animated-text">Para Minha Querida Namorada</h1>
- 
-        <p class="animated-text">Vida, se você está lendo essa mensagem, é porque eu estou ao seu lado. Estou escrevendo isso no dia 23/01/2025 e, neste momento, estou morrendo de saudade. Você é muito especial para mim e se tornou a pessoa mais importante da minha vida. Só de imaginar estar ao seu lado agora, já me sinto feliz, mesmo sabendo que ainda faltam alguns dias para isso acontecer. O tempo está passando mais devagar por causa da ansiedade de te ver, mas, neste momento, estando ao seu lado, posso admirar o quanto sou sortudo por ter você. Desde o dia 13 de novembro, venho colocando uma música diariamente nas minhas notas, e todas elas foram escolhidas pensando em você. Eu decidi colocar uma música para cada dia até te reencontrar, e acho que esse momento está finalmente chegando. A música que vai estar na nota, nesse momento em que estou com você, é Realidade ou Fantasia. Vidinha, eu te amo muito. Se eu estiver ao seu lado agora, pode olhar para mim e verá o meu olhar de admiração. Eu te amo demais, minha vidinha. Cada momento ao seu lado é um presente, e sou eternamente grato por ter você na minha vida. Você ilumina meus dias com</p>
+
+        <p class="animated-text">
+            Vida, se você está lendo essa mensagem, é porque eu estou ao seu lado. Estou escrevendo isso no dia 23/01/2025 e, neste momento, estou morrendo de saudade.
+            Você é muito especial para mim e se tornou a pessoa mais importante da minha vida. Só de imaginar estar ao seu lado agora, já me sinto feliz, mesmo sabendo
+            que ainda faltam alguns dias para isso acontecer. O tempo está passando mais devagar por causa da ansiedade de te ver, mas, neste momento, estando ao seu lado,
+            posso admirar o quanto sou sortudo por ter você. Desde o dia 13 de novembro, venho colocando uma música diariamente nas minhas notas, e todas elas foram
+            escolhidas pensando em você. Eu decidi colocar uma música para cada dia até te reencontrar, e acho que esse momento está finalmente chegando.
+            A música que vai estar na nota, nesse momento em que estou com você, é Realidade ou Fantasia. Vidinha, eu te amo muito.
+            Se eu estiver ao seu lado agora, pode olhar para mim e verá o meu olhar de admiração.
+            Eu te amo demais, minha vidinha. Cada momento ao seu lado é um presente, e sou eternamente grato por ter você na minha vida.
+            Você ilumina meus dias com
+        </p>
+
         <p class="animated-text"><strong>Seu Amor🤍</strong></p>
+
         <button id="revealMessageBtn">Clique para ver quantos dias estamos juntos</button>
+
         <div id="counter" class="hidden">
             <div class="time-box">
                 <span id="days"></span>
@@ -31,10 +140,16 @@
                 <p>Segundos</p>
             </div>
         </div>
+
         <div id="heartsContainer"></div>
-        <audio id="backgroundMusic" src="musica/Henrique e Juliano - Realidade ou Fantasia.mp3"></audio>
+
+        <audio id="backgroundMusic" src="musica/Henrique e Julian - Realidade ou Fantasia.mp3"></audio>
+
+        <!-- Botões de coração e bolo -->
         <a href="parte2.html" class="heart-button">❤️</a>
+        <a href="bolo.html" class="cake-button">🍰</a>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
