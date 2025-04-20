@@ -14,6 +14,9 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            position: absolute;
+            top: 2px;
+            padding-top: 50px; /* Adicionado para empurrar o conteúdo para baixo */
         }
 
         .card {
@@ -23,15 +26,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             text-align: center;
             max-width: 600px;
-        }
-
-        .animated-text {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         #revealMessageBtn {
@@ -147,7 +141,7 @@
 
         <!-- Botões de coração e bolo -->
         <a href="parte2.html" class="heart-button">❤️</a>
-        <a href="bolo.html" class="cake-button">🍰</a>
+        <a href="ani.html" class="cake-button">🍰</a>
     </div>
 
     <script src="script.js"></script>
